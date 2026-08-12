@@ -47,7 +47,7 @@ public class WeaponInventory : MonoBehaviour
     private void PreviewItem()
     {
         _nowIndex--;
-        if (_nowIndex < 0) _nowIndex = _inventory.Count();
+        if (_nowIndex < 0) _nowIndex = _inventory.Count() - 1;
 
         ChooseItem(_nowIndex);
     }
