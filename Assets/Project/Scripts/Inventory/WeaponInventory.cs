@@ -33,8 +33,8 @@ public class WeaponInventory : MonoBehaviour
     private void OnDisable()
     {
         _input.OnNextItemClick -= NextItem;
-        _input.OnPreviewItemClick += PreviewItem;
-        _input.OnItemChoose += ChooseItem;
+        _input.OnPreviewItemClick -= PreviewItem;
+        _input.OnItemChoose -= ChooseItem;
     }
 
     private void NextItem()
