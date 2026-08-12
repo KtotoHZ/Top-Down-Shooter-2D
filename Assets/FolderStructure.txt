@@ -1,0 +1,35 @@
++---Plugin
++---Resources
++---Settings
++---Project
+|   +---Scenes
+|   +---Animation
+|   |   +---Enemy
+|   |   |   +---Drone
+|   |   |   \---Drone Red
+|   |   +---Player
+|   |   \---Weapon
+|   |       +---Gun
+|   |       \---Sword
+|   +---Configs
+|   |   +---Enemy
+|   |   \---Weapon
+|   +---Perfabs
+|   |   +---Bullet
+|   |   +---Effect
+|   |   \---Enemy
+|   +---SciptbleObject
+|   +---Scripts
+|   |   +---Enemy
+|   |   +---Installer
+|   |   +---Interface
+|   |   +---Inventory
+|   |   +---ObjectPool
+|   |   +---Player
+|   |   \---Weapon
+|   |       \---Main
+|   \---Sprites
++---Resources
++---Scenes
+\---Settings
+    \---Scenes

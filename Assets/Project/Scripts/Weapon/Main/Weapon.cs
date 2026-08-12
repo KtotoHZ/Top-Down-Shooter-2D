@@ -1,0 +1,27 @@
+using System;
+using UnityEngine;
+using Zenject;
+
+public abstract class Weapon : MonoBehaviour, IWeapon
+{
+    [SerializeField] protected WeaponData _weaponData;
+    [Inject] protected IInputPlayer _input;
+    [Inject] protected IObjectPool _objectPool;
+
+    protected float _timeToActiveAttack;
+
+
+    public event Action OnAttack;
+    public event Action OnAlternativeAttack;
+    protected void InovkeOnAttack() => OnAttack?.Invoke();
+    protected void InovkeOnAlternativeAttack() => OnAlternativeAttack?.Invoke();
+
+    public abstract void Attack();
+
+    public bool IsAttackReady()
+    {
+        if (Time.time >= _timeToActiveAttack) return true;
+        else return false;
+    }
+
+}
