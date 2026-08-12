@@ -10,7 +10,7 @@ public class CameraController : MonoBehaviour
 
     private Vector3 velocity = Vector3.zero;
 
-    void FixedUpdate() // ← Меняем LateUpdate на FixedUpdate
+    private void LateUpdate()
     {
         if (target == null) return;
 
@@ -21,7 +21,7 @@ public class CameraController : MonoBehaviour
             ref velocity,
             smoothTime,
             Mathf.Infinity,
-            Time.fixedDeltaTime // ← Важно: используем fixedDeltaTime
+            Time.fixedDeltaTime 
         );
     }
 }
