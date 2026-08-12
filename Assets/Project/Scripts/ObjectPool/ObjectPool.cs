@@ -1,18 +1,31 @@
+using Cysharp.Threading.Tasks;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class ObjectPool : MonoBehaviour, IObjectPool
 {
-    [SerializeField] private GameObject _objectPart;
-    [SerializeField] private int _countStart;
+    private GameObject _objectPref;
 
     private GameObject _nowObject;
 
     private Queue<GameObject> _listObject = new();
 
-    private void Awake()
+    public void Initialize(GameObject pref, int startSize)
     {
-        for (int i = 0; i < _countStart; i++) CreatePart(_objectPart);
+        _objectPref = pref;
+
+        CreateTask(startSize).Forget();
+    }
+
+    //спавн обьектов раз в кадр, что бы не было фризов
+    private async UniTaskVoid CreateTask(int startSize)
+    {
+        for (int i = 0; i < startSize; i++)
+        {
+            CreatePart(_objectPref);
+
+            await UniTask.Yield();
+        }
     }
 
     public void CreatePart(GameObject gm)
@@ -31,7 +44,7 @@ public class ObjectPool : MonoBehaviour, IObjectPool
 
     public GameObject SpawnObject(Vector2 spawnPosition, Quaternion quaternion)
     {
-        if (_listObject.Count == 0) CreatePart(_objectPart);
+        if (_listObject.Count == 0) CreatePart(_objectPref);
 
         _nowObject = _listObject.Dequeue();
 

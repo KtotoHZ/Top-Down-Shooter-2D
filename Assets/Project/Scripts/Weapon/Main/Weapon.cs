@@ -6,7 +6,6 @@ public abstract class Weapon : MonoBehaviour, IWeapon
 {
     [SerializeField] protected WeaponData _weaponData;
     [Inject] protected IInputPlayer _input;
-    [Inject] protected IObjectPool _objectPool;
 
     protected float _timeToActiveAttack;
 

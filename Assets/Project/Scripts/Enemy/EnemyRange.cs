@@ -8,8 +8,9 @@ public class EnemyRange : Enemy
     [SerializeField] private float _speed = 3f;
     [SerializeField] private float _distanceToAttack = 1f;
     [SerializeField] private Transform _shootPoint;
+    [SerializeField] private GameObject _bulletPref;
 
-    [Inject] private IObjectPool _objectPool;
+    [Inject] private IObjectPoolManager _objectPoolManager;
 
     private Rigidbody2D _rb;
 
@@ -18,8 +19,6 @@ public class EnemyRange : Enemy
         base.Awake(); 
         _rb = GetComponent<Rigidbody2D>();
     }
-    
-    public void Initialize(IObjectPool objectPool) => _objectPool = objectPool;
 
     private void Update()
     {
@@ -46,7 +45,7 @@ public class EnemyRange : Enemy
         {
             _timeToActiveAttack = Time.time + _enemyData.DelayAttack;
 
-            _objectPool.SpawnObject(_shootPoint.position, _shootPoint.rotation);
+            _objectPoolManager.SpawnObject(_bulletPref, _shootPoint.position, _shootPoint.rotation);
 
             InvokeOnAttack();
         }

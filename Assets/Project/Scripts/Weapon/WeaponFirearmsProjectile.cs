@@ -1,8 +1,12 @@
 using UnityEngine;
+using Zenject;
 
 public class WeaponFirearmsProjectile : Weapon
 {
     [SerializeField] private Transform _pointShoot;
+    [SerializeField] private GameObject _bulletPref;
+    [Inject] private IObjectPoolManager _objectPoolManager;
+
     private void Update()
     {
         if (_input.IsAttackPressed()) Attack();
@@ -11,7 +15,7 @@ public class WeaponFirearmsProjectile : Weapon
     {
         if (IsAttackReady() == false) return;
 
-        _objectPool.SpawnObject(_pointShoot.position, _pointShoot.rotation)
+        _objectPoolManager.SpawnObject(_bulletPref, _pointShoot.position, _pointShoot.rotation)
             .GetComponent<ISetDamage>().SetDamage(_weaponData.Damage);
 
         _timeToActiveAttack = Time.time + _weaponData.DelayAttack;
