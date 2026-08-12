@@ -16,7 +16,7 @@ public class WeaponFirearmsProjectile : Weapon
         if (IsAttackReady() == false) return;
 
         _objectPoolManager.SpawnObject(_bulletPref, _pointShoot.position, _pointShoot.rotation)
-            .GetComponent<ISetDamage>().SetDamage(_weaponData.Damage);
+            .GetComponent<ISetDamage>()?.SetDamage(_weaponData.Damage);
 
         _timeToActiveAttack = Time.time + _weaponData.DelayAttack;
 

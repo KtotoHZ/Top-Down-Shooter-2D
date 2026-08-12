@@ -45,7 +45,8 @@ public class EnemyRange : Enemy
         {
             _timeToActiveAttack = Time.time + _enemyData.DelayAttack;
 
-            _objectPoolManager.SpawnObject(_bulletPref, _shootPoint.position, _shootPoint.rotation);
+            _objectPoolManager.SpawnObject(_bulletPref, _shootPoint.position, _shootPoint.rotation).
+                 GetComponent<ISetDamage>()?.SetDamage(_enemyData.Damage);
 
             InvokeOnAttack();
         }
