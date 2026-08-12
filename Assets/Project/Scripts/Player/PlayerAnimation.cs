@@ -29,18 +29,20 @@ public class PlayerAnimation : MonoBehaviour
     {
         _weaponInventory.OnChooseItemComponent -= OnWeaponChange;
         _playerController.OnTakeDamage -= PlayTakeDamageAnimation;
-        _nowWeapon.OnAttack -= PlayAttacAnimation;
-        _nowWeapon.OnAlternativeAttack -= PlayAttacAnimation;
+
+        if (_nowWeapon != null)
+        {
+            _nowWeapon.OnAttack -= PlayAttacAnimation;
+            _nowWeapon.OnAlternativeAttack -= PlayAttacAnimation;
+        }
     }
 
     void Update()
     {
         Vector2 moveDirection = _input.GetAxisRaw().normalized;
 
-        // Вычисляем локальное направление относительно поворота игрока
         Vector2 localDirection = transform.InverseTransformDirection(moveDirection);
 
-        // Обновляем аниматор
         if (_animator != null)
         {
             _animator.SetFloat("Horizontal", localDirection.x);
@@ -54,7 +56,6 @@ public class PlayerAnimation : MonoBehaviour
 
     private void OnWeaponChange(IWeapon weapon)
     {
-        // Если есть текущее оружие - отписываемся
         if (_nowWeapon != null)
         {
             _nowWeapon.OnAttack -= PlayAttacAnimation;
@@ -63,7 +64,6 @@ public class PlayerAnimation : MonoBehaviour
 
         _nowWeapon = weapon;
 
-        // Подписываемся на новое
         if (_nowWeapon != null)
         {
             _nowWeapon.OnAttack += PlayAttacAnimation;
