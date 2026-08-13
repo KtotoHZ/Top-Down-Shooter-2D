@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-public class DescktopInput : MonoBehaviour, IInputPlayer
+public class DesktopInput : MonoBehaviour, IInputPlayer
 {
     private Camera _camera;
 

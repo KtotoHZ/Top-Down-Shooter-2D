@@ -12,8 +12,8 @@ public abstract class Weapon : MonoBehaviour, IWeapon
 
     public event Action OnAttack;
     public event Action OnAlternativeAttack;
-    protected void InovkeOnAttack() => OnAttack?.Invoke();
-    protected void InovkeOnAlternativeAttack() => OnAlternativeAttack?.Invoke();
+    protected void InvokeOnAttack() => OnAttack?.Invoke();
+    protected void InvokeOnAlternativeAttack() => OnAlternativeAttack?.Invoke();
 
     public abstract void Attack();
 

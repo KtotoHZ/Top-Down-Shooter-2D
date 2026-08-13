@@ -20,7 +20,7 @@ public abstract class Enemy : MonoBehaviour, IEnemy
 
     protected virtual void Awake() => _health.Initialize(_enemyData.MaxHealth);
 
-    protected virtual void Start() => _target = FindTarge();
+    protected virtual void Start() => _target = FindTarget();
 
     protected virtual void OnEnable()
     {
@@ -48,5 +48,5 @@ public abstract class Enemy : MonoBehaviour, IEnemy
     }
     public abstract void Death();
 
-    protected Transform FindTarge() => GameObject.FindObjectOfType<PlayerController>().transform;
+    protected Transform FindTarget() => GameObject.FindObjectOfType<PlayerController>().transform;
 }

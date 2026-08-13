@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 7591711411339524130}
   - component: {fileID: 477916701807721622}
   - component: {fileID: 8933129463996859487}
-  - component: {fileID: 8900802707789286925}
   - component: {fileID: 4654258960151491244}
   - component: {fileID: 2866689473254824433}
   - component: {fileID: 5702719508306623799}
@@ -67,22 +66,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nameAttackClip: Attack
   _nameDamageClip: TakeDamage
---- !u!114 &8900802707789286925
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2426928497519497016}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6e070fa3edb6e1f4792dc624465bf91e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _shadowPref: {fileID: 4870823503328774812, guid: 9de62e610787bae41943ae36cd4a2905, type: 3}
-  _offset: {x: 0.5, y: -0.6}
-  _sprite: {fileID: -1757845000, guid: 9bc5775c806cdf441bfd352e0fd852e5, type: 3}
-  _color: {r: 0, g: 0, b: 0, a: 0.43137255}
 --- !u!58 &4654258960151491244
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -176,6 +159,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3276393858432135559}
   - component: {fileID: 3304934132087830085}
+  - component: {fileID: 5485767222422611286}
   m_Layer: 0
   m_Name: Sprite
   m_TagString: Untagged
@@ -250,3 +234,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &5485767222422611286
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5859757076447455945}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e070fa3edb6e1f4792dc624465bf91e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _shadowPref: {fileID: 4870823503328774812, guid: 9de62e610787bae41943ae36cd4a2905, type: 3}
+  _offset: {x: 0.5, y: -0.6}
+  _sprite: {fileID: -1757845000, guid: 9bc5775c806cdf441bfd352e0fd852e5, type: 3}
+  _color: {r: 0, g: 0, b: 0, a: 0.43137255}

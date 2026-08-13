@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-public class DisposeArfterTime : MonoBehaviour
+public class DisposeAfterTime : MonoBehaviour
 {
     [SerializeField] private float _delay;
     private float _timeToDispose;

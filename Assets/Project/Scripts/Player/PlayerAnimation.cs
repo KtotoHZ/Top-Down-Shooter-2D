@@ -32,8 +32,8 @@ public class PlayerAnimation : MonoBehaviour
 
         if (_nowWeapon != null)
         {
-            _nowWeapon.OnAttack -= PlayAttacAnimation;
-            _nowWeapon.OnAlternativeAttack -= PlayAttacAnimation;
+            _nowWeapon.OnAttack -= PlayAttackAnimation;
+            _nowWeapon.OnAlternativeAttack -= PlayAttackAnimation;
         }
     }
 
@@ -52,22 +52,22 @@ public class PlayerAnimation : MonoBehaviour
     }
 
     private void PlayTakeDamageAnimation() => _animator.Play("TakeDamage", 1, 0);
-    private void PlayAttacAnimation() => _animator.Play("Attack", 1, 0);
+    private void PlayAttackAnimation() => _animator.Play("Attack", 1, 0);
 
     private void OnWeaponChange(IWeapon weapon)
     {
         if (_nowWeapon != null)
         {
-            _nowWeapon.OnAttack -= PlayAttacAnimation;
-            _nowWeapon.OnAlternativeAttack -= PlayAttacAnimation;
+            _nowWeapon.OnAttack -= PlayAttackAnimation;
+            _nowWeapon.OnAlternativeAttack -= PlayAttackAnimation;
         }
 
         _nowWeapon = weapon;
 
         if (_nowWeapon != null)
         {
-            _nowWeapon.OnAttack += PlayAttacAnimation;
-            _nowWeapon.OnAlternativeAttack += PlayAttacAnimation;
+            _nowWeapon.OnAttack += PlayAttackAnimation;
+            _nowWeapon.OnAlternativeAttack += PlayAttackAnimation;
         }
     }
 }
