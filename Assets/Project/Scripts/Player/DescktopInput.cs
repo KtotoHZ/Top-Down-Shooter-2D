@@ -14,6 +14,9 @@ public class DescktopInput : MonoBehaviour, IInputPlayer
     public event Action OnNextItemClick;
     public event Action<int> OnItemChoose;
 
+
+    private void Awake() => _camera = Camera.main;
+
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape)) OnExitClick?.Invoke();
@@ -59,8 +62,6 @@ public class DescktopInput : MonoBehaviour, IInputPlayer
 
     public Vector2 RotateVector()
     {
-        if (_camera == null) _camera = Camera.main;
-
         return _camera.ScreenToWorldPoint(Input.mousePosition);
     }
 }
