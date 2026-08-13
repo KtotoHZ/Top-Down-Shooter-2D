@@ -18,8 +18,8 @@ public class PoolPart : MonoBehaviour, IPoolPart
     {
         if (_isPooled) return;
         
-        _objectPool.DeactivateObject(gameObject);
-
         _isPooled = true;
+
+        _objectPool.DeactivateObject(gameObject);
     }
 }
