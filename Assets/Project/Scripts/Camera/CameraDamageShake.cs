@@ -1,10 +1,11 @@
 using UnityEngine;
+using Zenject;
 
-public class CameraDamgeShake : MonoBehaviour
+public class CameraDamageShake : MonoBehaviour
 {
     [SerializeField] private string _nameClip_1;
     [SerializeField] private string _nameClip_2;
-    [SerializeField] private PlayerController _playerController;
+    [Inject] private PlayerController _playerController;
 
     private Animator _anim;
 

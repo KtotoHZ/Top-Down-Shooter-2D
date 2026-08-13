@@ -17,8 +17,8 @@ public class HealthSystem : IHealth
 
     public void Initialize(int maxHealth)
     {
-        SetMaxHealth(maxHealth);
         _currentHealth = maxHealth;
+        SetMaxHealth(maxHealth);
     }
 
     public void TakeDamage(int damage)
