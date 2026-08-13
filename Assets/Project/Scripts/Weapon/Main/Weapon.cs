@@ -9,6 +9,7 @@ public abstract class Weapon : MonoBehaviour, IWeapon
 
     protected float _timeToActiveAttack;
 
+    public WeaponData WeaponData => _weaponData;
 
     public event Action OnAttack;
     public event Action OnAlternativeAttack;

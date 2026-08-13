@@ -18,9 +18,8 @@ public class PlayerMove : MonoBehaviour, IMovable
 
     void Update()
     {
-        // Получаем ввод с WASD/Стрелок/Геймпада
         moveInput = _input.GetAxisRaw();
-        moveInput.Normalize(); // Чтобы по диагонали не бежать быстрее
+        moveInput.Normalize(); 
     }
 
     void FixedUpdate() => Move(moveInput);

@@ -217,6 +217,7 @@ GameObject:
   m_Component:
   - component: {fileID: 30021662}
   - component: {fileID: 30021663}
+  - component: {fileID: 30021664}
   m_Layer: 0
   m_Name: Sprite
   m_TagString: Untagged
@@ -291,6 +292,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &30021664
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 30021661}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e070fa3edb6e1f4792dc624465bf91e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _shadowPref: {fileID: 4870823503328774812, guid: 9de62e610787bae41943ae36cd4a2905, type: 3}
+  _offset: {x: 0.3, y: -0.6}
+  _sprite: {fileID: 21300000, guid: 09767b137c26c864fad52814c1a8d193, type: 3}
+  _color: {r: 0, g: 0, b: 0, a: 0.43137255}
 --- !u!1 &74729965
 GameObject:
   m_ObjectHideFlags: 0
@@ -300,7 +317,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 74729966}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -341,7 +358,7 @@ GameObject:
   - component: {fileID: 158202491}
   - component: {fileID: 158202493}
   - component: {fileID: 158202490}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -601,7 +618,8 @@ GameObject:
   m_Component:
   - component: {fileID: 297948824}
   - component: {fileID: 297948825}
-  m_Layer: 0
+  - component: {fileID: 297948826}
+  m_Layer: 7
   m_Name: BodySprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -675,6 +693,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &297948826
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 297948823}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e070fa3edb6e1f4792dc624465bf91e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _shadowPref: {fileID: 4870823503328774812, guid: 9de62e610787bae41943ae36cd4a2905, type: 3}
+  _offset: {x: 0.2, y: -0.3}
+  _sprite: {fileID: -1296339879, guid: d84c4e45386ad3a4d8a05c45babc0e09, type: 3}
+  _color: {r: 0, g: 0, b: 0, a: 0.43137255}
 --- !u!1 &300042598
 GameObject:
   m_ObjectHideFlags: 0
@@ -762,7 +796,7 @@ GameObject:
   m_Component:
   - component: {fileID: 332455549}
   - component: {fileID: 332455550}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Foot_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1150,6 +1184,7 @@ GameObject:
   - component: {fileID: 861468616}
   - component: {fileID: 861468617}
   - component: {fileID: 861468619}
+  - component: {fileID: 861468620}
   m_Layer: 6
   m_Name: Sprite
   m_TagString: Untagged
@@ -1232,7 +1267,7 @@ CapsuleCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 861468615}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -1257,9 +1292,25 @@ CapsuleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 1.085}
-  m_Size: {x: 0.5, y: 3.1}
+  m_Offset: {x: 0, y: 1.5}
+  m_Size: {x: 0.5, y: 3}
   m_Direction: 0
+--- !u!114 &861468620
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 861468615}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e070fa3edb6e1f4792dc624465bf91e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _shadowPref: {fileID: 4870823503328774812, guid: 9de62e610787bae41943ae36cd4a2905, type: 3}
+  _offset: {x: 0.3, y: -0.6}
+  _sprite: {fileID: 21300000, guid: df79ac749d9b3bd429f61115e1531102, type: 3}
+  _color: {r: 0, g: 0, b: 0, a: 0.43137255}
 --- !u!1 &957208726
 GameObject:
   m_ObjectHideFlags: 0
@@ -1301,7 +1352,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1230386821}
   - component: {fileID: 1230386822}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Foot_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1477,7 +1528,7 @@ Transform:
   m_GameObject: {fileID: 1794914201}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.049999997, y: 2.45, z: 0}
+  m_LocalPosition: {x: -0.049999997, y: 2.8, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1833,7 +1884,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2006625355}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Foots
   m_TagString: Untagged
   m_Icon: {fileID: 0}

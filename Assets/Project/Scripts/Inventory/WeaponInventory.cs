@@ -17,12 +17,11 @@ public class WeaponInventory : MonoBehaviour
     public Action<int> OnChooseItem;
     public Action<GameObject> OnChooseItemGameobject;
     public Action<IWeapon> OnChooseItemComponent;
+    public Action<IWeapon> OnAddItemComponent;
 
     private void Start()
     {
         foreach (GameObject gm in _startItem) AddItem(gm);
-
-        ChooseItem(0);
     }
     private void OnEnable()
     {
@@ -74,6 +73,9 @@ public class WeaponInventory : MonoBehaviour
             item.transform.rotation = _parentWeapon.rotation;
             item.transform.parent = _parentWeapon;
             item.SetActive(false);
+
+            ChooseItem(_inventory.Count() - 1);
+            OnAddItemComponent?.Invoke(_inventory.ReturnItemComponent(_nowIndex));
         }
     }
 }

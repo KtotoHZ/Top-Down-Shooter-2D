@@ -7,10 +7,10 @@ public class PoolPart : MonoBehaviour, IPoolPart
 
     private bool _isPooled;
 
+    private void OnEnable() => _isPooled = false;
+
     public void Inittialize(IObjectPool objectPool)
     {
-        _isPooled = false;
-
         _objectPool = objectPool;
     }
 
