@@ -4,12 +4,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using Zenject;
 
-public class PlayerController : MonoBehaviour, ITakeDamage
+public class PlayerController : MonoBehaviour, ITakeDamage, IHealable
 {
     [SerializeField] private int _maxHealth;
     [Inject] public IHealth _health { get; private set; }
 
     public Action OnTakeDamage;
+    public Action OnHeal;
     public Action OnDeath;
 
     private void Awake() => _health.Initialize(_maxHealth);
@@ -29,9 +30,16 @@ public class PlayerController : MonoBehaviour, ITakeDamage
 
         OnTakeDamage?.Invoke();
     }
+    public void Heal(int point)
+    {
+        _health.Heal(point);
+
+        OnHeal?.Invoke();   
+    }
 
     public void Death() 
     {
         OnDeath?.Invoke();
     }
+
 }
