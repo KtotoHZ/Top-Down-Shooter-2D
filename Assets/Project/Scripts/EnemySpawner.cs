@@ -1,8 +1,5 @@
 using Cysharp.Threading.Tasks;
-using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
 using UnityEngine;
 using Zenject;
 
@@ -26,7 +23,7 @@ struct Wave
     public float WaveDuration => _waveDuration;
 }
 
-public class Spawner : MonoBehaviour
+public class EnemySpawner : MonoBehaviour
 {
     [Inject] private DiContainer _container;
 
@@ -55,7 +52,9 @@ public class Spawner : MonoBehaviour
 
     private async UniTaskVoid SpawnMonster()
     {
-        for(int a = 0; a < _waves.Length; a++)
+        var cancellationToken = this.GetCancellationTokenOnDestroy();
+
+        for (int a = 0; a < _waves.Length; a++)
         {
             for (int b = 0; b < _waves[a].DataWaves.Length; b++)
             {
@@ -63,15 +62,15 @@ public class Spawner : MonoBehaviour
                 {
                     CreateEnemy(_waves[a].DataWaves[b].Type);
 
-                    await UniTask.WaitForSeconds(0.4f);
+                    await UniTask.WaitForSeconds(0.4f, cancellationToken: cancellationToken);
                 }
             }
-            await UniTask.WaitForSeconds(_waves[a].WaveDuration);
+            await UniTask.WaitForSeconds(_waves[a].WaveDuration, cancellationToken: cancellationToken);
         }
     }
     private void CreateEnemy(EnemyType type)
     {
-        int randomRange = UnityEngine.Random.Range(0, _spawnPoints.Length);
+        int randomRange = Random.Range(0, _spawnPoints.Length);
 
         _container.InstantiatePrefab(_enemys[type], 
             _spawnPoints[randomRange].position, 
