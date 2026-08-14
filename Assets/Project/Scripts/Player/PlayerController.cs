@@ -2,10 +2,12 @@ using System;
 using UnityEngine;
 using Zenject;
 
-public class PlayerController : MonoBehaviour, ITakeDamage, IHealable
+public class PlayerController : MonoBehaviour, ITakeDamage, IHealable, ITargetPositionProvider
 {
     [SerializeField] private int _maxHealth;
     [Inject] public IHealth Health { get; private set; }
+
+    public Vector2 Position => transform.position;
 
     public Action OnTakeDamage;
     public Action OnHeal;

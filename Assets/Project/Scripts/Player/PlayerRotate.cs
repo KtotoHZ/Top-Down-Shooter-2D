@@ -15,12 +15,14 @@ public class PlayerRotate : MonoBehaviour
 
     void FixedUpdate()
     {
-        Vector2 dir = _input.RotateVector() - new Vector2(transform.position.x, transform.position.y);
+        Vector2 dir = _input.RotateVector();
 
         if (dir.magnitude > 0.1f)
         {
             float targetAngle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg - 90f;
-            _rb.MoveRotation(Mathf.MoveTowardsAngle(_rb.rotation, targetAngle, speed * Time.fixedDeltaTime));
+
+            _rb.MoveRotation(Mathf.MoveTowardsAngle(
+                _rb.rotation, targetAngle, speed * Time.fixedDeltaTime));
         }
     }
 }

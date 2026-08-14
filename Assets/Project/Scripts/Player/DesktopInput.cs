@@ -1,8 +1,11 @@
 using System;
 using UnityEngine;
+using Zenject;
 
 public class DesktopInput : MonoBehaviour, IInputPlayer
 {
+    [Inject] private ITargetPositionProvider _player;
+
     private Camera _camera;
 
     public event Action OnExitClick;
@@ -13,7 +16,6 @@ public class DesktopInput : MonoBehaviour, IInputPlayer
     public event Action OnPreviewItemClick;
     public event Action OnNextItemClick;
     public event Action<int> OnItemChoose;
-
 
     private void Awake() => _camera = Camera.main;
 
@@ -62,10 +64,11 @@ public class DesktopInput : MonoBehaviour, IInputPlayer
 
     public Vector2 RotateVector()
     {
+
         Vector3 mouseWorld = _camera.ScreenToWorldPoint(Input.mousePosition);
         mouseWorld.z = 0f; 
 
-        Vector2 direction = ((Vector2)mouseWorld - playerPosition).normalized;
+        Vector2 direction = ((Vector2)mouseWorld - _player.Position).normalized;
 
         return direction.sqrMagnitude > 0.001f ? direction : Vector2.right;
     }
