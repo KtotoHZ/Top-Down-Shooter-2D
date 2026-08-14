@@ -10,7 +10,7 @@ public class EnemyParticle : MonoBehaviour
 
     private IEnemy _enemy;
 
-    private void Awake() => _enemy = GetComponent<Enemy>();
+    private void Awake() => _enemy = GetComponent<IEnemy>();
 
     private void OnEnable()
     {

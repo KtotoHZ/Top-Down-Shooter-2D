@@ -18,7 +18,7 @@ public class Inventory<T> : IInventory<T>
     }
     public void RemoveItem(int index)
     {
-        if (_inventoryGm[index] != null)
+        if (index > 0 && index < _inventoryGm.Count && _inventoryGm[index] != null)
         {
             _inventoryGm.RemoveAt(index);
             _inventoryComponent.RemoveAt(index);
@@ -26,10 +26,13 @@ public class Inventory<T> : IInventory<T>
     }
     public void ChooseItem(int index)
     {
-        for (int i = 0; i < _inventoryGm.Count; i++)
-            if (i != index) _inventoryGm[i].SetActive(false);
+        if (index > 0 && index < _inventoryGm.Count && _inventoryGm[index] != null)
+        {
+            for (int i = 0; i < _inventoryGm.Count; i++)
+                if (i != index) _inventoryGm[i].SetActive(false);
 
-        _inventoryGm[index].SetActive(true);
+            _inventoryGm[index].SetActive(true);
+        }
     }
     public GameObject ReturnItemObject(int index)
     {
