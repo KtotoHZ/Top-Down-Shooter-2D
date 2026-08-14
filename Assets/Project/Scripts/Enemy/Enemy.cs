@@ -15,6 +15,8 @@ public abstract class Enemy : MonoBehaviour, IEnemy
     public event Action OnAttack;
     public event Action OnDeath;
 
+    public static Action OnAnyDeath;
+
     public void InvokeOnAttack() => OnAttack?.Invoke();
     public void InvokeOnDeath() => OnDeath?.Invoke();
 
@@ -43,10 +45,12 @@ public abstract class Enemy : MonoBehaviour, IEnemy
         OnTakeDamage?.Invoke();
 
         _health.TakeDamage(damage);
-
-        if (_health.CurrentHealth == 0) OnDeath?.Invoke();
     }
-    public abstract void Death();
+    public virtual void Death() 
+    {
+        OnDeath?.Invoke();
+        OnAnyDeath?.Invoke();
+    }
 
     protected Transform FindTarget() => GameObject.FindObjectOfType<PlayerController>().transform;
 }

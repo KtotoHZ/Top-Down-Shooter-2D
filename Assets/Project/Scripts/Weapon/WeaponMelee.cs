@@ -23,6 +23,7 @@ public class WeaponMelee : Weapon
         AttackStart().Forget();
 
         InvokeOnAttack();
+        InvokeOnAnyAttack();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

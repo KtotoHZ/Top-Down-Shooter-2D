@@ -54,8 +54,9 @@ public class EnemyRange : Enemy
 
     public override void Death()
     {
+        base.Death();
+
         Destroy(gameObject);
-        InvokeOnDeath();
     }
 
     public void Move(Vector2 direction)

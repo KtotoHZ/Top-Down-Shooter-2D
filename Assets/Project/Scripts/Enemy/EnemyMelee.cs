@@ -37,8 +37,9 @@ public class EnemyMelee : Enemy, IMovable
 
     public override void Death()
     {
+        base.Death();
+
         Destroy(gameObject);
-        InvokeOnDeath();
     }
 
     public void Move(Vector2 vectorMove)

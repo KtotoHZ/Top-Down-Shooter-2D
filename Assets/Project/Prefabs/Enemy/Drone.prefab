@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7591711411339524130}
   - component: {fileID: 477916701807721622}
   - component: {fileID: 8933129463996859487}
+  - component: {fileID: 3847612726580412626}
   - component: {fileID: 4654258960151491244}
   - component: {fileID: 2866689473254824433}
   - component: {fileID: 5702719508306623799}
@@ -66,6 +67,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nameAttackClip: Attack
   _nameDamageClip: TakeDamage
+--- !u!114 &3847612726580412626
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2426928497519497016}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b85931191a0c7846bcd15f927baaf9c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _prefDamagePS: {fileID: 2998188190835421241, guid: 0b2eca2e7566ae04b882e0086cd3feab, type: 3}
+  _prefDeadPS: {fileID: 5643152882226105020, guid: a2557da1378cbd343bc0e49c2ae2ffdc, type: 3}
 --- !u!58 &4654258960151491244
 CircleCollider2D:
   m_ObjectHideFlags: 0
