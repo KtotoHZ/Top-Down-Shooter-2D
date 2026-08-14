@@ -62,6 +62,11 @@ public class DesktopInput : MonoBehaviour, IInputPlayer
 
     public Vector2 RotateVector()
     {
-        return _camera.ScreenToWorldPoint(Input.mousePosition);
+        Vector3 mouseWorld = _camera.ScreenToWorldPoint(Input.mousePosition);
+        mouseWorld.z = 0f; 
+
+        Vector2 direction = ((Vector2)mouseWorld - playerPosition).normalized;
+
+        return direction.sqrMagnitude > 0.001f ? direction : Vector2.right;
     }
 }

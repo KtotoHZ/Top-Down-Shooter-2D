@@ -8,7 +8,7 @@ public class CameraController : MonoBehaviour
 
     private Vector3 velocity = Vector3.zero;
 
-    private void FixedUpdate()
+    private void LateUpdate()
     {
         if (target == null) return;
 

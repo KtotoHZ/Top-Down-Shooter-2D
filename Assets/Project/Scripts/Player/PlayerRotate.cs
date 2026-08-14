@@ -9,17 +9,18 @@ public class PlayerRotate : MonoBehaviour
 
     [Inject] private IInputPlayer _input;
 
-    void Update()
+    private Rigidbody2D _rb;
+
+    private void Awake() => _rb = GetComponent<Rigidbody2D>();
+
+    void FixedUpdate()
     {
         Vector2 dir = _input.RotateVector() - new Vector2(transform.position.x, transform.position.y);
 
         if (dir.magnitude > 0.1f)
         {
-            // —разу вычисл€ем целевой угол с учетом смещени€
             float targetAngle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg - 90f;
-            float currentAngle = transform.eulerAngles.z;
-            float newAngle = Mathf.MoveTowardsAngle(currentAngle, targetAngle, speed * Time.deltaTime);
-            transform.rotation = Quaternion.Euler(0, 0, newAngle);
+            _rb.MoveRotation(Mathf.MoveTowardsAngle(_rb.rotation, targetAngle, speed * Time.fixedDeltaTime));
         }
     }
 }
