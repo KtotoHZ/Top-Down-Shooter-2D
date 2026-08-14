@@ -6,6 +6,7 @@ public abstract class Weapon : MonoBehaviour, IWeapon
 {
     [SerializeField] protected WeaponData _weaponData;
     [Inject] protected IInputPlayer _input;
+    [Inject] protected SignalBus _signalBus;
 
     protected float _timeToActiveAttack;
 
@@ -14,11 +15,8 @@ public abstract class Weapon : MonoBehaviour, IWeapon
     public event Action OnAttack;
     public event Action OnAlternativeAttack;
 
-    public static event Action OnAnyAttack;
-
     protected void InvokeOnAttack() => OnAttack?.Invoke();
     protected void InvokeOnAlternativeAttack() => OnAlternativeAttack?.Invoke();
-    protected void InvokeOnAnyAttack() => OnAnyAttack?.Invoke();
 
     public abstract void Attack();
 

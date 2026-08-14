@@ -20,7 +20,8 @@ public class WeaponFirearmsProjectile : Weapon
 
         _timeToActiveAttack = Time.time + _weaponData.DelayAttack;
 
-        InvokeOnAnyAttack();
+        _signalBus.Fire<WeaponAttackSignal>();
+
         InvokeOnAttack();
     }
 }

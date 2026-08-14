@@ -6,6 +6,7 @@ public abstract class Enemy : MonoBehaviour, IEnemy
 {
     [SerializeField] protected EnemyData _enemyData;
     [Inject] public IHealth _health { get; private set; }
+    [Inject] private SignalBus _signalBus;
 
     protected float _timeToActiveAttack;
 
@@ -14,8 +15,6 @@ public abstract class Enemy : MonoBehaviour, IEnemy
     public event Action OnTakeDamage;
     public event Action OnAttack;
     public event Action OnDeath;
-
-    public static Action OnAnyDeath;
 
     public void InvokeOnAttack() => OnAttack?.Invoke();
     public void InvokeOnDeath() => OnDeath?.Invoke();
@@ -48,8 +47,8 @@ public abstract class Enemy : MonoBehaviour, IEnemy
     }
     public virtual void Death() 
     {
+        _signalBus.Fire<EnemyDeadSignal>();
         OnDeath?.Invoke();
-        OnAnyDeath?.Invoke();
     }
 
     protected Transform FindTarget() => GameObject.FindObjectOfType<PlayerController>().transform;

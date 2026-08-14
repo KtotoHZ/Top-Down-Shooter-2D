@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 803cc81fedecdb343aa1658d143c6204, type: 3}
   m_Name: Mejee_1
   m_EditorClassIdentifier: 
-  _damage: 20
+  _damage: 100
   _delayAttack: 0.7
   _recharge: 0
   _spriteIcon: {fileID: 21300000, guid: df79ac749d9b3bd429f61115e1531102, type: 3}
