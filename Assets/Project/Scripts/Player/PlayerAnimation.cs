@@ -24,11 +24,13 @@ public class PlayerAnimation : MonoBehaviour
     {
         _weaponInventory.OnChooseItemComponent += OnWeaponChange;
         _playerController.OnTakeDamage += PlayTakeDamageAnimation;
+        _playerController.OnDeath += PlayDeathAnimation;
     }
     private void OnDisable()
     {
         _weaponInventory.OnChooseItemComponent -= OnWeaponChange;
         _playerController.OnTakeDamage -= PlayTakeDamageAnimation;
+        _playerController.OnDeath -= PlayDeathAnimation;
 
         if (_nowWeapon != null)
         {
@@ -53,6 +55,7 @@ public class PlayerAnimation : MonoBehaviour
 
     private void PlayTakeDamageAnimation() => _animator.Play("TakeDamage", 1, 0);
     private void PlayAttackAnimation() => _animator.Play("Attack", 1, 0);
+    private void PlayDeathAnimation() => _animator.Play("Death", 0, 0);
 
     private void OnWeaponChange(IWeapon weapon)
     {

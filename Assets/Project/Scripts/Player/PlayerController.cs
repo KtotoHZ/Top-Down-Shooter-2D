@@ -39,6 +39,8 @@ public class PlayerController : MonoBehaviour, ITakeDamage, IHealable, ITargetPo
 
     public void Death() 
     {
+        Time.timeScale = 0;
+
         OnDeath?.Invoke();
     }
 
