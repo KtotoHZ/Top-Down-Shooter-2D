@@ -10,5 +10,6 @@ public class SignalInstaller : MonoInstaller
 
         Container.DeclareSignal<WeaponAttackSignal>().OptionalSubscriber();
         Container.DeclareSignal<EnemyDeadSignal>().OptionalSubscriber();
+        Container.DeclareSignal<GamePauseSignal>().OptionalSubscriber();
     }
 }

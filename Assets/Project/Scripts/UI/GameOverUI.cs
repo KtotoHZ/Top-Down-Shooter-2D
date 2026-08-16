@@ -10,6 +10,7 @@ public class GameOverUI : MonoBehaviour
     [SerializeField] private GameObject _gameOverPanel;
     [SerializeField] private float _delayActivation;
     [Inject] private PlayerController _playerController;
+    [Inject] private IGamePauseService _gamePauseService;
 
     private void OnEnable() => _playerController.OnDeath += OnGameOver;
     private void OnDisable() => _playerController.OnDeath -= OnGameOver;
@@ -24,6 +25,8 @@ public class GameOverUI : MonoBehaviour
     }
     public void RestartLevel()
     {
+        _gamePauseService.ResumeGame();
+
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }

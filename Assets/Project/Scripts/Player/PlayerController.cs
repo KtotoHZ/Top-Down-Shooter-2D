@@ -5,6 +5,8 @@ using Zenject;
 public class PlayerController : MonoBehaviour, ITakeDamage, IHealable, ITargetPositionProvider
 {
     [SerializeField] private int _maxHealth;
+
+    [Inject] private IGamePauseService _gamePauseService;
     [Inject] public IHealth Health { get; private set; }
 
     public Vector2 Position => transform.position;
@@ -39,7 +41,7 @@ public class PlayerController : MonoBehaviour, ITakeDamage, IHealable, ITargetPo
 
     public void Death() 
     {
-        Time.timeScale = 0;
+        _gamePauseService.PauseGame();
 
         OnDeath?.Invoke();
     }
