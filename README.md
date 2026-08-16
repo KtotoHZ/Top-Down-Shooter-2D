@@ -1,6 +1,6 @@
 # 🎯 Top Down Shooter
 
-![Unity](https://img.shields.io/badge/Unity-2022.3_LTS-000000?style=for-the-badge&logo=unity)
+![Unity](https://img.shields.io/badge/Unity-2022.3.62_LTS-000000?style=for-the-badge&logo=unity)
 ![C#](https://img.shields.io/badge/C%23-9.0-239120?style=for-the-badge&logo=csharp&logoColor=white)
 ![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)
 
@@ -51,7 +51,7 @@
 ## 🚀 Запуск
 
 1. `git clone https://github.com/KtotoHZ/Top-Down-Shooter-2D`
-2. Открыть в **Unity Hub** (2022.3 LTS+)
+2. Открыть в **Unity Hub** (2022.3.62 LTS+)
 3. Возможно потребуется поставить [Extenject](https://github.com/Mathijs-Bakker/Extenject) и [UniTask](https://github.com/Cysharp/UniTask)
 4. Открыть сцену (Assets\Project\Scenes\Level_1) и нажать **Play**
 
