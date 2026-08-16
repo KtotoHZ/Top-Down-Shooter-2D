@@ -19,7 +19,7 @@ public class CameraController : MonoBehaviour
             ref velocity,
             smoothTime,
             Mathf.Infinity,
-            Time.fixedDeltaTime 
+            Time.deltaTime 
         );
     }
 }
