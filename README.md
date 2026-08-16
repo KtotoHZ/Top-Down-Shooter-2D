@@ -57,6 +57,6 @@
 
 ## 📫 Контакты
 
-**Никита Тронь** — [GitHub](https://github.com/KtotoHZ) · [Telegram](https://t.me/NickitaTron) · [Email](tron.nick@yandex.ru)
+**Никита Тронь** — [GitHub](https://github.com/KtotoHZ) · [Telegram](https://t.me/NickitaTron) · Email: tron.nick@yandex.ru
 
 ---
