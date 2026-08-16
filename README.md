@@ -12,7 +12,7 @@
 ![Event-Driven](https://img.shields.io/badge/Arch-Event--Driven-purple?style=flat-square)
 
 <!-- Замени на GIF или видео с геймплеем -->
-![Gameplay](Docs/gameplay_1.gif)
+![Gameplay](Docs/GamePlay_1.gif)
 
 > Пет-проект top-down shooter на Unity.
 Цель проекта — продемонстрировать навыки проектирования игровой архитектуры, работы с DI, событийной системой, пулом объектов, ScriptableObject, асинхронными операциями и разделением ответственности между системами.
