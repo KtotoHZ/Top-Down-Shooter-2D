@@ -14,7 +14,7 @@ public class EnemyMelee : Enemy, IMovable
         _rb = GetComponent<Rigidbody2D>();
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         if (_target == null) return;
 
