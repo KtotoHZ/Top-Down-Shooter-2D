@@ -12,4 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 062b89de711d2f64186718a56616e336, type: 3}
   m_Name: Wave_1
   m_EditorClassIdentifier: 
-  _waves: []
+  _waves:
+  - _dataWave:
+    - _type: 0
+      _count: 5
+  - _dataWave:
+    - _type: 0
+      _count: 7
+    - _type: 1
+      _count: 3
+  - _dataWave:
+    - _type: 0
+      _count: 10
+    - _type: 1
+      _count: 6
