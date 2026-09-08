@@ -9,12 +9,12 @@ public class PoolPart : MonoBehaviour, IPoolPart
 
     private void OnEnable() => _isPooled = false;
 
-    public void Inittialize(IObjectPool objectPool)
+    public void Initialize(IObjectPool objectPool)
     {
         _objectPool = objectPool;
     }
 
-    public void Dispose()
+    public void ReturnToPool()
     {
         if (_isPooled) return;
         

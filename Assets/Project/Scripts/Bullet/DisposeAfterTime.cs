@@ -12,7 +12,7 @@ public class DisposeAfterTime : MonoBehaviour
     {
         if(Time.time >= _timeToDispose)
         {
-            if (TryGetComponent(out IDisposable disposable)) disposable.Dispose();
+            if (TryGetComponent(out IPoolPart poolPart)) poolPart.ReturnToPool();
             else Destroy(gameObject);
         }
     }

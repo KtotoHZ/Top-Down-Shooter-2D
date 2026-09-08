@@ -15,7 +15,7 @@ public class BulletClassic : MonoBehaviour, ISetDamage
         {
             takeDamage.TakeDamage(_damage);
 
-            if (TryGetComponent(out IPoolPart poolPart)) poolPart.Dispose();
+            if (TryGetComponent(out IPoolPart poolPart)) poolPart.ReturnToPool();
             else Destroy(gameObject);
         }
     }

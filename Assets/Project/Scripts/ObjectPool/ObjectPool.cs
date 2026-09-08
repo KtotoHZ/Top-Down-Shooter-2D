@@ -34,8 +34,12 @@ public class ObjectPool : MonoBehaviour, IObjectPool
 
         _listObject.Enqueue(_nowObject);
 
-        IPoolPart poolPart = _nowObject.AddComponent<PoolPart>();
-        poolPart.Inittialize(this);
+        IPoolPart poolPart;
+
+        if(_nowObject.TryGetComponent<PoolPart>(out PoolPart component)) poolPart = component; 
+        else poolPart = _nowObject.AddComponent<PoolPart>();
+
+        poolPart.Initialize(this);
 
         _nowObject.transform.parent = transform;
 
@@ -45,6 +49,13 @@ public class ObjectPool : MonoBehaviour, IObjectPool
     public GameObject SpawnObject(Vector2 spawnPosition, Quaternion quaternion)
     {
         if (_listObject.Count == 0) CreatePart(_objectPref);
+
+        while (_listObject.Peek() == null)
+        {
+            _listObject.Dequeue();
+
+            CreatePart(_objectPref);
+        }
 
         _nowObject = _listObject.Dequeue();
 

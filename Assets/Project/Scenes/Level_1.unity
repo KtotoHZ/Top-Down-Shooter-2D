@@ -362,27 +362,13 @@ MonoBehaviour:
     Pref: {fileID: 2426928497519497016, guid: db7738952033a5043be113732c593686, type: 3}
   - Type: 1
     Pref: {fileID: 679251630782753638, guid: 3b6a1d9747372e74f973772aea6511f9, type: 3}
+  _target: {fileID: 158202486}
   _spawnPoints:
   - {fileID: 796592160}
   - {fileID: 743558539}
   - {fileID: 1407135432}
   - {fileID: 957208727}
-  _waves:
-  - _dataWave:
-    - _type: 0
-      _count: 5
-  - _dataWave:
-    - _type: 0
-      _count: 5
-    - _type: 1
-      _count: 3
-  - _dataWave:
-    - _type: 0
-      _count: 4
-    - _type: 1
-      _count: 5
-    - _type: 0
-      _count: 4
+  _wavesConfig: {fileID: 11400000, guid: 19adac38fad13bc4e859a7e5fdbf8a35, type: 2}
   _delaySpawn: 0.4
 --- !u!4 &300042600
 Transform:

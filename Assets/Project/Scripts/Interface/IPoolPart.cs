@@ -1,6 +1,7 @@
 using System;
 
-public interface IPoolPart: IDisposable
+public interface IPoolPart
 {
-    void Inittialize(IObjectPool objectPool);
+    void Initialize(IObjectPool objectPool);
+    void ReturnToPool();
 }
