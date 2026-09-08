@@ -3,26 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using Zenject;
 
-[System.Serializable]
-struct GroupEnemy
-{
-    [Header("Тип Врага")]
-    [SerializeField] private EnemyType _type;
-    [Header("Количество врагов")]
-    [SerializeField] private int _count;
-
-    public EnemyType Type => _type;
-    public int Count => _count;
-}
-
-[System.Serializable]
-struct Wave
-{
-    [SerializeField] private GroupEnemy[] _dataWave;
-
-    public GroupEnemy[] DataWaves => _dataWave;
-}
-
 public class EnemySpawner : MonoBehaviour
 {
     [Inject] private DiContainer _container;
@@ -41,11 +21,14 @@ public class EnemySpawner : MonoBehaviour
     [Header("Префабы врагов")]
     [SerializeField] private _enemyPref[] _enemyPrefs;
 
+    [Header("Игрок")]
+    [SerializeField] private Transform _target;
+
     [Header("Точки спавна врагов")]
     [SerializeField] private Transform[] _spawnPoints;
 
     [Header("Волны")]
-    [SerializeField] private Wave[] _waves;
+    [SerializeField] private EnemyWaveSO _wavesConfig;
 
     [Header("Интервал спавна врагов")]
     [SerializeField] private float _delaySpawn = 0.4f;
@@ -69,13 +52,13 @@ public class EnemySpawner : MonoBehaviour
     {
         var cancellationToken = this.GetCancellationTokenOnDestroy();
 
-        for (int a = 0; a < _waves.Length; a++)
+        for (int a = 0; a < _wavesConfig.Waves.Length; a++)
         {
-            for (int b = 0; b < _waves[a].DataWaves.Length; b++)
+            for (int b = 0; b < _wavesConfig.Waves[a].DataWaves.Length; b++)
             {
-                for (int c = 0; c < _waves[a].DataWaves[b].Count; c++)
+                for (int c = 0; c < _wavesConfig.Waves[a].DataWaves[b].Count; c++)
                 {
-                    CreateEnemy(_waves[a].DataWaves[b].Type);
+                    CreateEnemy(_wavesConfig.Waves[a].DataWaves[b].Type);
 
                     await UniTask.WaitForSeconds(_delaySpawn, cancellationToken: cancellationToken);
                 }
@@ -88,10 +71,12 @@ public class EnemySpawner : MonoBehaviour
     {
         int randomRange = Random.Range(0, _spawnPoints.Length);
 
-        _container.InstantiatePrefab(_enemys[type],
+        IEnemy enemy = _container.InstantiatePrefab(_enemys[type],
             _spawnPoints[randomRange].position,
             _spawnPoints[randomRange].rotation,
             null).GetComponent<IEnemy>();
+
+        enemy.Initialize(_target);
 
         _enemysCount++;
     }

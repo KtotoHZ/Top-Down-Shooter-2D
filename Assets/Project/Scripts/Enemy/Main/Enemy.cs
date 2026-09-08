@@ -21,8 +21,6 @@ public abstract class Enemy : MonoBehaviour, IEnemy
 
     protected virtual void Awake() => _health.Initialize(_enemyData.MaxHealth);
 
-    protected virtual void Start() => _target = FindTarget();
-
     protected virtual void OnEnable()
     {
         _health.OnDeath += Death;
@@ -31,6 +29,8 @@ public abstract class Enemy : MonoBehaviour, IEnemy
     {
         _health.OnDeath -= Death;
     }
+
+    public void Initialize(Transform target) => _target = target;
     
     public abstract void Attack();
     public bool IsAttackReady()
